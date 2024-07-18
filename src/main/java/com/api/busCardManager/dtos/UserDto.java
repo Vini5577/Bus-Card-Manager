@@ -13,11 +13,16 @@ import java.util.List;
 @Data
 public class UserDto {
 
+    private Long id;
+
     @NotBlank
     private String name;
 
     @NotBlank
     private String password;
+
+    @NotBlank
+    private String email;
 
     private List<Card> cards;
 }
