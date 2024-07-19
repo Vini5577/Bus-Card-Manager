@@ -2,12 +2,10 @@ package com.api.busCardManager.dtos;
 
 import com.api.busCardManager.model.CardType;
 import com.api.busCardManager.model.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 
+@Data
 public class CardDto {
 
     @NotBlank
@@ -17,6 +15,4 @@ public class CardDto {
 
     @NotBlank
     private CardType type;
-
-    private User user;
 }

@@ -1,5 +1,6 @@
 package com.api.busCardManager.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -7,8 +8,10 @@ import lombok.Data;
 @Entity
 @Table(name = "tbl_card")
 public class Card {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long Id;
     @Column(nullable = false)
     private String number;
@@ -19,5 +22,6 @@ public class Card {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 }
