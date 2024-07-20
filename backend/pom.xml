@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.api</groupId>
-	<artifactId>busCardManager</artifactId>
+	<artifactId>busCardApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>busCardManager</name>
+	<name>busCardApi</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
