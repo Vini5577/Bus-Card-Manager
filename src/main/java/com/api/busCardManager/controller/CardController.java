@@ -24,4 +24,14 @@ public class CardController {
     public ResponseEntity<Object> listCards(@PathVariable Long userId) {
         return cardService.listCardsOfUser(userId);
     }
+
+    @DeleteMapping("/{userId}/cards/{cardId}/delete")
+    public ResponseEntity<String> deleteCard(@PathVariable Long userId, @PathVariable Long cardId) {
+        return  cardService.deleteCard(userId, cardId);
+    }
+
+    @PutMapping("/{userId}/cards/{cardId}/status")
+    public  ResponseEntity<String> changeCardStatus(@PathVariable Long userId, @PathVariable Long cardId) {
+        return cardService.changeCardStatus(userId, cardId);
+    }
 }
