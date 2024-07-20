@@ -29,6 +29,10 @@ public class CardService {
 
         User user = userOptional.get();
 
+        if(verifyNumber(cardDto.getNumber())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("CARTÃO JÁ REGISTRADO");
+        }
+
         Card card = new Card();
         card.setUser(user);
         card.setNumber(cardDto.getNumber());
@@ -82,7 +86,9 @@ public class CardService {
         } else {
             return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cartão não é utilizado pelo usuário");
         }
+    }
 
-
+    public Boolean verifyNumber(String number) {
+        return  cardRepository.findByNumber(number).isPresent();
     }
 }

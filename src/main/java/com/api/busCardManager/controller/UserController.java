@@ -19,7 +19,6 @@ public class UserController {
     @GetMapping("/get")
     public ResponseEntity<Object> getUsers() {
         try {
-
             return ResponseEntity.status(HttpStatus.OK).body(userService.getAll());
         } catch (Exception ex) {
             ex.printStackTrace();
