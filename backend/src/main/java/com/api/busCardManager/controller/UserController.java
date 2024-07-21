@@ -26,6 +26,17 @@ public class UserController {
         }
     }
 
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Object> getUser(@PathVariable Long id) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(userService.getOne(id));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Nenhum usuario encontrado");
+        }
+    }
+
+
     @PostMapping("/add")
     public ResponseEntity<Object> addUser(@RequestBody UserDto userDto) {
         try {
@@ -56,9 +67,10 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         try {
-            return userService.deleteUser(id);
+            userService.deleteUser(id);
+            return ResponseEntity.noContent().build();
         } catch (Exception ex) {
             ex.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("ERROR NO SERVIDOR");

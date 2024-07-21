@@ -6,22 +6,21 @@
         <th>Senha</th>
         <th>Quantidade de cartão</th>
         <th>-</th>
+        <th>Editar</th>
+        <th>remover</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngFor="let user of users">
       <tr>
-        <td>João Silva</td>
-        <td>joao@example.com</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
         <td>********</td>
-        <td>5</td>
+        <td>{{user.cards?.length}}</td>
         <td><a class="btn">Mostrar cartões</a></td>
-      </tr>
-      <tr>
-        <td>João Silva</td>
-        <td>joao@example.com</td>
-        <td>********</td>
-        <td>5</td>
-        <td><a class="btn">Mostrar cartões</a></td>
+        <td><ng-icon (click)="openUpdateModal(user.id)" name="ionPencilSharp"></ng-icon></td>
+        <td><ng-icon (click)="deleteUser(user.id)" name="ionTrashSharp"></ng-icon></td>
       </tr>
     </tbody>
 </table>
+
+<app-update-user-form></app-update-user-form>

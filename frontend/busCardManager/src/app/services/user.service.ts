@@ -18,15 +18,19 @@ export class UserService {
     return this.http.get<User[]>(`${this.apiUrl}/get`)
   }
 
+  getUser(userId: number): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/get/${userId}`)
+  }
+
   addUser(user: User):Observable<User[]> {
     return this.http.post<User[]>(`${this.apiUrl}/add`, user)
   }
 
-  deleteUser(userId: number): Observable<User[]> {
-    return this.http.delete<User[]>(`${this.apiUrl}/delete/${userId}`)
+  deleteUser(userId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/delete/${userId}`);
   }
 
-  putUser(user: User): Observable<User[]> {
+  updateUser(user: User): Observable<User[]> {
     return this.http.put<User[]>(`${this.apiUrl}/update`, user)
   }
 

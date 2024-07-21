@@ -1,0 +1,27 @@
+<div class="container" *ngIf="showUpdateModal">
+  <div class="form-container">
+    <div class="icon-container">
+      <ng-icon (click)="closeModal()" name="ionClose"></ng-icon>
+    </div>
+    <h2>Atualização do usuário</h2>
+
+    <form method="post">
+      <input type="hidden" [(ngModel)]="userObj.id" name="id" id="id" />
+      <div class="input-container">
+        <label for="name">Nome:</label>
+        <input type="text" [(ngModel)]="userObj.name" name="name" id="name" />
+      </div>
+      <div class="input-container">
+        <label for="password">Senha:</label>
+        <input type="password" [(ngModel)]="userObj.password" name="password" id="password" />
+      </div>
+      <div class="input-container">
+        <label for="email">E-mail:</label>
+        <input type="text" [(ngModel)]="userObj.email" name="email" id="email" />
+      </div>
+      <div class="btn-container">
+        <a (click)="updateUser()" class="btn">Atualizar usuário</a>
+      </div>
+    </form>
+  </div>
+</div>

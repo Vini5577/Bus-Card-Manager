@@ -1,0 +1,42 @@
+.mat-dialog-container {
+  max-width: 300px;
+  margin: auto; /* Centraliza horizontalmente */
+}
+
+.mat-dialog-title {
+  text-align: center; /* Centraliza o título do diálogo */
+}
+
+.mat-dialog-content {
+  text-align: center; /* Centraliza o conteúdo do diálogo */
+}
+
+.mat-dialog-actions {
+  justify-content: center; /* Centraliza os botões de ação */
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+a:nth-child(2) {
+  background-color: rgb(155, 62, 62);
+  color: white;
+  transition: .3s ease-in-out;
+}
+
+a:nth-child(2):hover {
+  background-color: rgba(155, 62, 62, 0.558);
+}
+
+a {
+  border: none !important;
+  background-color: #ddd;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+a:hover {
+  background-color: #ccc;}

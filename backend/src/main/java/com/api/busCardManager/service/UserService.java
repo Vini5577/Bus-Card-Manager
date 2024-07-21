@@ -35,6 +35,10 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getOne(Long id) {
+        return userRepository.findById(id).get();
+    }
+
     public User updateUser(UserDto userDto) {
         Optional<User> existingUser = userRepository.findById(userDto.getId());
 
