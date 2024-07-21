@@ -7,7 +7,7 @@
         <th>Quantidade de cartão</th>
         <th>-</th>
         <th>Editar</th>
-        <th>remover</th>
+        <th>Remover</th>
       </tr>
     </thead>
     <tbody *ngFor="let user of users">
@@ -16,11 +16,10 @@
         <td>{{user.email}}</td>
         <td>********</td>
         <td>{{user.cards?.length}}</td>
-        <td><a class="btn">Mostrar cartões</a></td>
+        <td><a routerLink="/{{user.id}}" class="btn">Mostrar cartões</a></td>
         <td><ng-icon (click)="openUpdateModal(user.id)" name="ionPencilSharp"></ng-icon></td>
         <td><ng-icon (click)="deleteUser(user.id)" name="ionTrashSharp"></ng-icon></td>
       </tr>
     </tbody>
 </table>
-
 <app-update-user-form></app-update-user-form>

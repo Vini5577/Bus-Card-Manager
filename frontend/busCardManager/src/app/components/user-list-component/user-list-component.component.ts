@@ -12,6 +12,7 @@ import { UpdateUserFormComponent } from '../forms/update-user-form/update-user-f
 })
 export class UserListComponentComponent implements OnInit {
   users: User[] = [];
+  showDeleteModal = false;
   @ViewChild(UpdateUserFormComponent) updateUserFormComponent!: UpdateUserFormComponent;
 
   constructor(private userService: UserService, private dialog: MatDialog) { }
@@ -23,7 +24,11 @@ export class UserListComponentComponent implements OnInit {
   }
 
   deleteUser(userId: any): void {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      height: '200px',
+      panelClass: 'custom-dialog-container'
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

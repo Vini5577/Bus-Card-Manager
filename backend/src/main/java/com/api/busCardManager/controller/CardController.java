@@ -16,8 +16,9 @@ public class CardController {
     private CardService cardService;
 
     @PostMapping("/{userId}/cards/add")
-    public ResponseEntity<String> addCard(@PathVariable Long userId, @RequestBody CardDto cardDto) {
-        return cardService.addCardToUser(userId, cardDto);
+    public ResponseEntity<Object> addCard(@PathVariable Long userId, @RequestBody CardDto cardDto) {
+        cardService.addCardToUser(userId, cardDto);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{userId}/cards/get")
@@ -25,13 +26,20 @@ public class CardController {
         return cardService.listCardsOfUser(userId);
     }
 
+    @GetMapping("/{userId}/cards/get/{cardId}")
+    public ResponseEntity<Object> oneCard(@PathVariable Long userId, @PathVariable Long cardId) {
+        return cardService.oneCardOfUser(userId, cardId);
+    }
+
     @DeleteMapping("/{userId}/cards/delete/{cardId}")
     public ResponseEntity<String> deleteCard(@PathVariable Long userId, @PathVariable Long cardId) {
-        return  cardService.deleteCard(userId, cardId);
+        cardService.deleteCard(userId, cardId);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{userId}/cards/status/{cardId}")
-    public  ResponseEntity<String> changeCardStatus(@PathVariable Long userId, @PathVariable Long cardId) {
-        return cardService.changeCardStatus(userId, cardId);
+    public  ResponseEntity<Object> changeCardStatus(@PathVariable Long userId, @PathVariable Long cardId) {
+        cardService.changeCardStatus(userId, cardId);
+        return ResponseEntity.noContent().build();
     }
 }

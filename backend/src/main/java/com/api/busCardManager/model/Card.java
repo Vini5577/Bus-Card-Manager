@@ -11,7 +11,6 @@ public class Card {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long Id;
     @Column(nullable = false)
     private String number;

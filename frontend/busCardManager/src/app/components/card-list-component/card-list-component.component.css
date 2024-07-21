@@ -59,6 +59,14 @@ ng-icon[name="ionTrashSharp"]:hover {
   color: rgba(192, 69, 69, 0.511);
 }
 
+ng-icon[name="ionCheckmarkCircle"] {
+  color: rgb(17, 85, 17);
+}
+
+ng-icon[name="ionCloseCircle"] {
+  color: rgb(192, 69, 69);
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -80,7 +88,7 @@ a {
     font-size: 14px;
     border-bottom: 1px solid #ddd;
     position: relative;
-    padding: 10px 10px 10px;;
+    padding: 10px 10px 10px;
     box-sizing: border-box;
   }
 

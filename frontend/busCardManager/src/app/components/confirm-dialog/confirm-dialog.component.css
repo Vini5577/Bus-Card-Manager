@@ -10,11 +10,6 @@
 .mat-dialog-content {
   text-align: center; /* Centraliza o conteúdo do diálogo */
 }
-
-.mat-dialog-actions {
-  justify-content: center; /* Centraliza os botões de ação */
-}
-
 .btn-container {
   width: 100%;
   display: flex;

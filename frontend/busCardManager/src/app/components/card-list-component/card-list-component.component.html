@@ -1,0 +1,25 @@
+<table class="responsive-table">
+  <thead>
+    <tr>
+      <th>Número do cartão</th>
+      <th>Tipo do cartão</th>
+      <th>Status</th>
+      <th>Editar</th>
+      <th>Remover</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let card of cards">
+    <tr>
+      <td>{{card.number}}</td>
+      <td>{{card.type}}</td>
+      <td *ngIf="card.status">
+        <ng-icon (click)="changeStatus(card.id)" name="ionCheckmarkCircle"></ng-icon>
+      </td>
+      <td *ngIf="!card.status">
+        <ng-icon (click)="changeStatus(card.id)" name="ionCloseCircle"></ng-icon>
+      </td>
+      <td><ng-icon name="ionPencilSharp"></ng-icon></td>
+      <td><ng-icon (click)="deleteCard(card.id)" name="ionTrashSharp"></ng-icon></td>
+    </tr>
+  </tbody>
+</table>

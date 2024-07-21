@@ -34,19 +34,23 @@ export class UserService {
     return this.http.put<User[]>(`${this.apiUrl}/update`, user)
   }
 
-  addCard(userId: number, card: Card): Observable<Card[]> {
+  addCard(userId: any, card: Card): Observable<Card[]> {
     return this.http.post<Card[]>(`${this.apiUrl}/${userId}/cards/add`, card)
   }
 
-  getCards(userId: number): Observable<Card[]> {
+  getCards(userId: any): Observable<Card[]> {
     return this.http.get<Card[]>(`${this.apiUrl}/${userId}/cards/get`)
   }
 
-  removeCard(userId: number, cardId: number): Observable<Card[]> {
+  getCard(userId: any, cardId: any): Observable<Card> {
+    return this.http.get<Card>(`${this.apiUrl}/${userId}/cards/get/${cardId}`)
+  }
+
+  removeCard(userId: any, cardId: any): Observable<Card[]> {
     return this.http.delete<Card[]>(`${this.apiUrl}/${userId}/cards/delete/${cardId}`)
   }
 
-  changeCardStatus(userId: number, cardId: number): Observable<Card[]> {
-    return this.http.put<Card[]>(`${this.apiUrl}/${userId}/cards/status/${cardId}`, {})
+  changeCardStatus(userId: any, cardId: any): Observable<Card[]> {
+    return this.http.put<Card[]>(`${this.apiUrl}/${userId}/cards/status/${cardId}`, {});
   }
 }

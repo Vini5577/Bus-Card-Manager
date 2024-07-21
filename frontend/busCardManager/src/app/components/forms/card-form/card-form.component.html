@@ -1,0 +1,26 @@
+<div class="container" *ngIf="showModal">
+  <div class="form-container">
+    <div class="icon-container">
+      <ng-icon (click)="closeModal()" name="ionClose"></ng-icon>
+    </div>
+    <h2>Cadastro usuário</h2>
+
+    <form method="post">
+      <div class="input-container">
+        <label for="name">Número:</label>
+        <input type="number" [(ngModel)]="cardObj.number" name="number" id="number" />
+      </div>
+      <div class="input-container">
+        <label for="email">Tipo do cartão:</label>
+        <select [(ngModel)]="cardObj.type" name="type" id="">
+          <option value="COMUM">COMUM</option>
+          <option value="ESTUDANTE">ESTUDANTE</option>
+          <option value="TRABALHADOR">TRABALHADOR</option>
+        </select>
+      </div>
+      <div class="btn-container">
+        <a (click)="addUser()" class="btn">Cadastrar usuário</a>
+      </div>
+    </form>
+  </div>
+</div>

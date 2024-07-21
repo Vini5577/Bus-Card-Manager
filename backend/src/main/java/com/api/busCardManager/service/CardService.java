@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 
 @Service
 public class CardService {
@@ -21,7 +22,7 @@ public class CardService {
     @Autowired
     private CardRepository cardRepository;
 
-    public ResponseEntity<String> addCardToUser(Long userId, CardDto cardDto) {
+    public ResponseEntity<Object> addCardToUser(Long userId, CardDto cardDto) {
         Optional<User> userOptional = userRepository.findById(userId);
         if(!userOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado!");
@@ -52,6 +53,17 @@ public class CardService {
         return ResponseEntity.status(HttpStatus.OK).body(userOptional.get().getCards());
     }
 
+    public ResponseEntity<Object> oneCardOfUser(Long userId, Long cardId) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        Optional<Card> cardOptional = cardRepository.findById(cardId);
+
+        if(!userOptional.isPresent() || !cardOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário ou cartão não encontrado!");
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(cardOptional.get());
+    }
+
     public ResponseEntity<String> deleteCard(Long userId, Long cardId) {
         Optional<User> userOptional = userRepository.findById(userId);
         Optional<Card> cardOptional = cardRepository.findById(cardId);
@@ -69,7 +81,7 @@ public class CardService {
         }
     }
 
-    public ResponseEntity<String> changeCardStatus(Long userId, Long cardId) {
+    public ResponseEntity<Object> changeCardStatus(Long userId, Long cardId) {
         Optional<User> userOptional = userRepository.findById(userId);
         Optional<Card> cardOptional = cardRepository.findById(cardId);
 
