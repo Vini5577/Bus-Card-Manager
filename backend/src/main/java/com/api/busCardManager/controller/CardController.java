@@ -25,12 +25,12 @@ public class CardController {
         return cardService.listCardsOfUser(userId);
     }
 
-    @DeleteMapping("/{userId}/cards/{cardId}/delete")
+    @DeleteMapping("/{userId}/cards/delete/{cardId}")
     public ResponseEntity<String> deleteCard(@PathVariable Long userId, @PathVariable Long cardId) {
         return  cardService.deleteCard(userId, cardId);
     }
 
-    @PutMapping("/{userId}/cards/{cardId}/status")
+    @PutMapping("/{userId}/cards/status/{cardId}")
     public  ResponseEntity<String> changeCardStatus(@PathVariable Long userId, @PathVariable Long cardId) {
         return cardService.changeCardStatus(userId, cardId);
     }

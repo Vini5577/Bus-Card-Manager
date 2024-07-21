@@ -1,0 +1,72 @@
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  table-layout: auto;
+}
+
+.responsive-table thead {
+  background-color: #f2f2f2;
+}
+
+.responsive-table thead th {
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.responsive-table tbody td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.responsive-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.btn {
+  background-color: #ddd;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:hover {
+  background-color: #d6c8c8;
+}
+
+@media (max-width: 768px) {
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tbody tr {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .responsive-table tbody td {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .responsive-table tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: calc(50% - 20px);
+    white-space: nowrap;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .responsive-table tbody td:last-child {
+    border-bottom: 0;
+  }
+}
