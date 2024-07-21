@@ -1,2 +1,2 @@
-# Bus-Card-Manager
-Sistema de gerenciamento de usuários e cartões de ônibus
+# Bus-Card-Api
+Api do Sistema de gerenciamento de usuários e cartões de ônibus
